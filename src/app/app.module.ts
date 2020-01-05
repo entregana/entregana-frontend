@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ClarityModule } from '@clr/angular';
 @NgModule({
   declarations: [
     AppComponent
@@ -11,6 +12,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule
+    ClarityModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
