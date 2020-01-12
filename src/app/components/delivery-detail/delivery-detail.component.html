@@ -1,0 +1,110 @@
+<button
+  *ngIf="isDeliveryActive"
+  class="btn completeButton"
+  type="button"
+  (click)="isCompleteModalOpened = true"
+>
+  Completed
+</button>
+<button
+  *ngIf="isDeliveryActive"
+  class="btn"
+  type="button"
+  [routerLink]="['/deliveries', currentActiveDelivery.id, 'edit']"
+>
+  Edit
+</button>
+
+<ul class="clr-timeline clr-timeline-vertical">
+  <li *ngFor="let delivery of deliveries" class="clr-timeline-step">
+    <div class="clr-timeline-step-header">{{ delivery.modifiedAt }}</div>
+    <clr-icon
+      *ngIf="delivery.isHistorical"
+      shape="success-standard"
+      aria-label="Historical"
+    ></clr-icon>
+    <clr-icon
+      *ngIf="delivery.isCurrent"
+      shape="dot-circle"
+      aria-label="Current"
+    ></clr-icon>
+    <div class="clr-timeline-step-body">
+      <span class="clr-timeline-step-title">Delivery status: {{ delivery.status }}</span>
+      <span class="clr-timeline-step-description">
+        <p class="recipientName">{{ delivery.recipient.fullName }}</p>
+        <address>
+          {{ delivery.recipient.address }}, <br />
+          <a
+            *ngIf="delivery.recipient.email"
+            href="mailto:{{ delivery.recipient.email }}"
+          >
+            {{ delivery.recipient.email }} </a
+          ><br />
+          <a
+            *ngIf="delivery.recipient.phone"
+            href="tel:{{ delivery.recipient.phone }}"
+          >
+            {{ delivery.recipient.phone }} </a
+          ><br />
+          {{ delivery.recipient.additionalDetails }}
+        </address>
+        {{ delivery.otherDetails }}
+      </span>
+    </div>
+  </li>
+
+  <clr-modal *ngIf="isDeliveryActive" [(clrModalOpen)]="isCompleteModalOpened">
+    <h3 class="modal-title">
+      Are you sure you wan't to complete this delivery?
+    </h3>
+    <div class="modal-body">
+      <p>
+        One you complete the delivery you won't be able to change it anymore.
+        The delivery will remain listed in the completed delivery list and you
+        will still be able to see its details and history.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline"
+        (click)="isCompleteModalOpened = false"
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="completeDelivery()"
+      >
+        Yes, complete
+      </button>
+    </div>
+  </clr-modal>
+
+  <clr-modal
+    *ngIf="isDeliveryActive"
+    [(clrModalOpen)]="isRequestPendingModalOpen"
+  >
+    <h3 class="modal-title">Your request is being processed</h3>
+    <div class="modal-body">
+      <clr-spinner>Loading</clr-spinner>
+    </div>
+  </clr-modal>
+
+  <clr-modal *ngIf="isDeliveryActive" [(clrModalOpen)]="isSuccessModalOpen">
+    <h3 class="modal-title">The delivery was successfully completed!</h3>
+    <div class="modal-body">
+      <clr-icon shape="success-standard" aria-label="Completed"></clr-icon>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="isSuccessModalOpen = false"
+      >
+        Ok
+      </button>
+    </div>
+  </clr-modal>
+</ul>

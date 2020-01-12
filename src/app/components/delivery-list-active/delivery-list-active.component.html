@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Package type</th>
+      <th>Courier</th>
+      <th>Recipient</th>
+      <th>Status</th>
+      <th>Last modified at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let delivery of deliveries">
+      <td><a [routerLink]="['/deliveries', delivery.id]">{{ delivery.id }}</a></td>
+      <td>{{ delivery.packageType }}</td>
+      <td>{{ delivery.courier }}</td>
+      <td>{{ delivery.recipient.firstName }} {{ delivery.recipient.lastName }}</td>
+      <td>{{ delivery.status }}</td>
+      <td>{{ delivery.modifiedAt }}</td>
+    </tr>
+  </tbody>
+</table>
