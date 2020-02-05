@@ -6,8 +6,20 @@
     </a>
   </div>
   <div class="header-nav">
-    <a routerLink="/deliveries/active" routerLinkActive="active" class="nav-link"><span class="nav-text">Active</span></a>
-    <a routerLink="/deliveries/completed" routerLinkActive="active" class="nav-link"><span class="nav-text">Completed</span></a>
-    <a routerLink="/deliveries/create" routerLinkActive="active" class="nav-link"><span class="nav-text">Create new</span></a>
+    <a routerLink="/deliveries/active" routerLinkActive="active" class="nav-link">
+      <span class="nav-text">
+        {{ 'common.menu.active' | translate }}
+      </span>
+    </a>
+    <a routerLink="/deliveries/completed" routerLinkActive="active" class="nav-link">
+      <span class="nav-text">
+        {{ 'common.menu.completed' | translate }}
+      </span>
+    </a>
+    <a routerLink="/deliveries/create" routerLinkActive="active" class="nav-link">
+      <span class="nav-text">
+        {{ 'common.menu.create' | translate }}
+      </span>
+    </a>
   </div>
 </header>

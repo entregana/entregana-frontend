@@ -1,99 +1,100 @@
 <main>
   <form [formGroup]="form" (ngSubmit)="createDelivery()" clrForm>
     <clr-select-container>
-      <label>Package type</label>
+      <label>{{ "form.packageType" | translate }}</label>
       <select clrSelect formControlName="packageType">
         <option
           *ngFor="let packageType of packageTypes"
           value="{{ packageType.value }}"
-          >{{ packageType.label }}</option
         >
+          {{ packageType.label | translate }}
+        </option>
       </select>
       <clr-control-error *ngIf="packageType.dirty && packageType.invalid">
         <div *ngIf="packageType.errors.required">
-          This field is required.
+          {{ "form.required" | translate }}
         </div>
       </clr-control-error>
     </clr-select-container>
 
     <clr-input-container>
-      <label>Courier</label>
+      <label>{{ "form.courier" | translate }}</label>
       <input clrInput type="text" formControlName="courier" />
       <clr-control-error *ngIf="courier.dirty && courier.invalid">
         <div *ngIf="courier.errors.required">
-          This field is required.
+          {{ "form.required" | translate }}
         </div>
       </clr-control-error>
     </clr-input-container>
 
     <div formGroupName="recipient">
       <clr-input-container>
-        <label>First name</label>
+        <label>{{ "form.firstName" | translate }}</label>
         <input clrInput type="text" formControlName="firstName" />
         <clr-control-error *ngIf="firstName.dirty && firstName.invalid">
           <div *ngIf="firstName.errors.required">
-            This field is required.
+            {{ "form.required" | translate }}
           </div>
         </clr-control-error>
       </clr-input-container>
 
       <clr-input-container>
-        <label>Last name</label>
+        <label>{{ "form.lastName" | translate }}</label>
         <input clrInput type="text" formControlName="lastName" />
         <clr-control-error *ngIf="lastName.dirty && lastName.invalid">
           <div *ngIf="lastName.errors.required">
-            This field is required.
+            {{ "form.required" | translate }}
           </div>
         </clr-control-error>
       </clr-input-container>
 
       <clr-textarea-container>
-        <label>Address</label>
+        <label>{{ "form.address" | translate }}</label>
         <textarea clrTextarea formControlName="address"></textarea>
         <clr-control-error *ngIf="address.dirty && address.invalid">
           <div *ngIf="address.errors.required">
-            This field is required.
+            {{ "form.required" | translate }}
           </div>
         </clr-control-error>
       </clr-textarea-container>
 
       <clr-input-container>
-        <label>Email</label>
+        <label>{{ "form.email" | translate }}</label>
         <input clrInput type="text" formControlName="email" />
         <clr-control-error *ngIf="email.dirty && email.invalid">
           <div *ngIf="email.errors.required">
-            This field is required.
+            {{ "form.required" | translate }}
           </div>
         </clr-control-error>
       </clr-input-container>
 
       <clr-input-container>
-        <label>Phone</label>
+        <label>{{ "form.phone" | translate }}</label>
         <input clrInput type="text" formControlName="phone" />
         <clr-control-error *ngIf="phone.dirty && phone.invalid">
           <div *ngIf="phone.errors.required">
-            This field is required.
+            {{ "form.required" | translate }}
           </div>
         </clr-control-error>
       </clr-input-container>
     </div>
 
-    <clr-input-container>
-      <label>Other details</label>
-      <input clrInput type="text" formControlName="otherDetails" />
+    <clr-textarea-container>
+      <label>{{ "form.otherDetails" | translate }}</label>
+      <textarea clrTextarea formControlName="otherDetails"></textarea>
       <clr-control-error *ngIf="otherDetails.dirty && otherDetails.invalid">
         <div *ngIf="otherDetails.errors.required">
-          This field is required.
+          {{ "form.required" | translate }}
         </div>
       </clr-control-error>
-    </clr-input-container>
+    </clr-textarea-container>
 
     <clr-input-container>
-      <label>Status</label>
+      <label>{{ "form.status" | translate }}</label>
       <input clrInput type="text" formControlName="status" />
       <clr-control-error *ngIf="status.dirty && status.invalid">
         <div *ngIf="status.errors.required">
-          This field is required.
+          {{ "form.required" | translate }}
         </div>
       </clr-control-error>
     </clr-input-container>
@@ -103,15 +104,19 @@
       type="submit"
       [disabled]="!form.valid || requestIsPending"
     >
-      Submit
+      {{ "form.create" | translate }}
     </button>
-    <button class="btn" type="button" (click)="resetForm()">Reset</button>
+    <button class="btn" type="button" (click)="resetForm()">
+      {{ "form.reset" | translate }}
+    </button>
   </form>
 
   <clr-modal [(clrModalOpen)]="requestIsPending">
-    <h3 class="modal-title">Your request is being processed</h3>
+    <h3 class="modal-title">
+      {{ "common.requiestIsBeingProcessed" | translate }}
+    </h3>
     <div class="modal-body">
-      <clr-spinner>Loading</clr-spinner>
+      <clr-spinner></clr-spinner>
     </div>
   </clr-modal>
 </main>

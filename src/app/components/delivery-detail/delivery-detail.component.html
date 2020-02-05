@@ -4,7 +4,7 @@
   type="button"
   (click)="isCompleteModalOpened = true"
 >
-  Completed
+  {{ 'delivery.detail.complete' | translate }}
 </button>
 <button
   *ngIf="isDeliveryActive"
@@ -12,12 +12,12 @@
   type="button"
   [routerLink]="['/deliveries', currentActiveDelivery.id, 'edit']"
 >
-  Edit
+{{ 'delivery.detail.edit' | translate }}
 </button>
 
 <ul class="clr-timeline clr-timeline-vertical">
   <li *ngFor="let delivery of deliveries" class="clr-timeline-step">
-    <div class="clr-timeline-step-header">{{ delivery.modifiedAt }}</div>
+    <div class="clr-timeline-step-header">{{ delivery.modifiedAt | date:'dd.MM.yyyy, HH:mm:ss' }}</div>
     <clr-icon
       *ngIf="delivery.isHistorical"
       shape="success-standard"
@@ -29,7 +29,7 @@
       aria-label="Current"
     ></clr-icon>
     <div class="clr-timeline-step-body">
-      <span class="clr-timeline-step-title">Delivery status: {{ delivery.status }}</span>
+      <span class="clr-timeline-step-title">{{ 'delivery.detail.deliveryStatus' | translate }}: {{ delivery.status }}</span>
       <span class="clr-timeline-step-description">
         <p class="recipientName">{{ delivery.recipient.fullName }}</p>
         <address>
@@ -55,13 +55,11 @@
 
   <clr-modal *ngIf="isDeliveryActive" [(clrModalOpen)]="isCompleteModalOpened">
     <h3 class="modal-title">
-      Are you sure you wan't to complete this delivery?
+      {{ 'delivery.detail.completeConfirmationTitle' | translate }}
     </h3>
     <div class="modal-body">
       <p>
-        One you complete the delivery you won't be able to change it anymore.
-        The delivery will remain listed in the completed delivery list and you
-        will still be able to see its details and history.
+        {{ 'delivery.detail.completeConfirmationBody' | translate }}
       </p>
     </div>
     <div class="modal-footer">
@@ -70,14 +68,14 @@
         class="btn btn-outline"
         (click)="isCompleteModalOpened = false"
       >
-        Cancel
+      {{ 'delivery.detail.completeConfirmationCancel' | translate }}
       </button>
       <button
         type="button"
         class="btn btn-primary"
         (click)="completeDelivery()"
       >
-        Yes, complete
+      {{ 'delivery.detail.completeConfirmationContinue' | translate }}
       </button>
     </div>
   </clr-modal>
@@ -86,14 +84,14 @@
     *ngIf="isDeliveryActive"
     [(clrModalOpen)]="isRequestPendingModalOpen"
   >
-    <h3 class="modal-title">Your request is being processed</h3>
+    <h3 class="modal-title">{{ 'common.requiestIsBeingProcessed' | translate }}</h3>
     <div class="modal-body">
-      <clr-spinner>Loading</clr-spinner>
+      <clr-spinner></clr-spinner>
     </div>
   </clr-modal>
 
   <clr-modal *ngIf="isDeliveryActive" [(clrModalOpen)]="isSuccessModalOpen">
-    <h3 class="modal-title">The delivery was successfully completed!</h3>
+    <h3 class="modal-title">{{ 'delivery.detail.completeSuccess' | translate }}</h3>
     <div class="modal-body">
       <clr-icon shape="success-standard" aria-label="Completed"></clr-icon>
     </div>

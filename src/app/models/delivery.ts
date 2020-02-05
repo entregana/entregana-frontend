@@ -34,9 +34,12 @@ export class Delivery {
 
   public static get packateTypes() {
     return [
-      { value: 'documents', label: 'Documents' },
-      { value: 'pallets', label: 'Pallets' },
-      { value: 'parcels', label: 'Parcels' }
+      { value: 'letter', label: 'common.packageTypes.letter' },
+      { value: 'postcard', label: 'common.packageTypes.postcard' },
+      { value: 'printedItem', label: 'common.packageTypes.printedItem' },
+      { value: 'smallPackage', label: 'common.packageTypes.smallPackage' },
+      { value: 'secogram', label: 'common.packageTypes.secogram' },
+      { value: 'parcel', label: 'common.packageTypes.parcel' }
     ];
   }
 
@@ -46,5 +49,9 @@ export class Delivery {
 
   public get isCurrent() {
     return !this.isHistorical
+  }
+
+  public get packageTypeObject() {
+    return Delivery.packateTypes.find(it => { return it.value == this.packageType })
   }
 }

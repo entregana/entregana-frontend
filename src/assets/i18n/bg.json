@@ -1,0 +1,52 @@
+{
+  "common": {
+    "menu": {
+      "active": "Активни доставки",
+      "completed": "Приключени доставки",
+      "create": "Създай нова"
+    },
+    "packageTypes": {
+      "letter": "Писма",
+      "postcard": "Пощенска карта",
+      "printedItem": "Печатно произведение",
+      "smallPackage": "Малък пакет",
+      "secogram": "Секограма",
+      "parcel": "Колет"
+    },
+    "requiestIsBeingProcessed": "Заявката се обработва"
+  },
+  "form": {
+    "packageType": "Тип на пратката",
+    "courier": "Куриер",
+    "firstName": "Име",
+    "lastName": "Фамилия",
+    "address": "Адрес",
+    "email": "Email",
+    "phone": "Телефон",
+    "otherDetails": "Други детайли",
+    "status": "Статус",
+    "required": "Това поле е задължително",
+    "create": "Създай",
+    "update": "Обнови",
+    "reset": "Изчисти"
+  },
+  "delivery": {
+    "list": {
+      "packageType": "Тип на пратката",
+      "courier": "Куриер",
+      "recipient": "Получател",
+      "status": "Статус",
+      "lastModifiedAt": "Последна промяна"
+    },
+    "detail": {
+      "complete": "Приключи",
+      "edit": "Редактирай",
+      "completeConfirmationTitle": "Сигурен ли сте, че искате да приключите тази доставка?",
+      "completeConfirmationBody": "Веднъж приключена, доставката не може да бъде променяна. Тя ще продължи да бъде видима в списъка с приключени доставки.",
+      "completeConfirmationCancel": "Откажи",
+      "completeConfirmationContinue": "Продължи",
+      "completeSuccess": "Доставката е приключена успешно!",
+      "deliveryStatus": "Статус на доставката"
+    }
+  }
+}

@@ -16,13 +16,21 @@ export class DeliveryService {
     public http: HttpClient,
   ) { }
 
-  retrieveDeliveries(): Promise<Array<Delivery>> {
+  retrieveDeliveries(completed: boolean = false): Promise<Array<Delivery>> {
+    var url = `${this.baseURL}/deliveries/`
+    if (completed) {
+      url = `${url}completed/`
+    }
     return new Promise((resolve, reject) => {
-      this.http.get(`${this.baseURL}/deliveries/`).subscribe(
+      this.http.get(url).subscribe(
         (data: Array<Object>) => {
           const jsonConvert = new JsonConvert();
           const deliveries: Array<Delivery> = jsonConvert.deserializeArray(data, Delivery);
-          this.activeDeliveries = deliveries;
+          if (completed) {
+            this.completedDelivieries = deliveries;
+          } else {
+            this.activeDeliveries = deliveries;
+          }
           resolve(deliveries);
         },
         error => {

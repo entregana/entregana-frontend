@@ -1,0 +1,11 @@
+{
+  "delivery": {
+    "list": {
+      "packageType": "Package type",
+      "courier": "Courier",
+      "recipient": "Recipient",
+      "status": "Status",
+      "lastModifiedAt": "Last modified at"
+    }
+  }
+}

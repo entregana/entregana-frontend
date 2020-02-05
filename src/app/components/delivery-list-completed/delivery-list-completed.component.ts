@@ -13,7 +13,7 @@ export class DeliveryListCompletedComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.deliveryService.retrieveDeliveries();
+    this.deliveryService.retrieveDeliveries(true);
   }
 
   public get deliveries() {
