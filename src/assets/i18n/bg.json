@@ -48,5 +48,11 @@
       "completeSuccess": "Доставката е приключена успешно!",
       "deliveryStatus": "Статус на доставката"
     }
-  }
+  },
+  "letter": "Писма",
+  "postcard": "Пощенска карта",
+  "printedItem": "Печатно произведение",
+  "smallPackage": "Малък пакет",
+  "secogram": "Секограма",
+  "parcel": "Колет"
 }

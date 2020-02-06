@@ -1,4 +1,35 @@
 {
+  "common": {
+    "menu": {
+      "active": "Active deliveries",
+      "completed": "Completed deliveries",
+      "create": "Create new"
+    },
+    "packageTypes": {
+      "letter": "Letter",
+      "postcard": "Postcard",
+      "printedItem": "Printed item",
+      "smallPackage": "Small package",
+      "secogram": "Secogram",
+      "parcel": "Parcel"
+    },
+    "requiestIsBeingProcessed": "Request is being processed"
+  },
+  "form": {
+    "packageType": "Package type",
+    "courier": "Courier",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "address": "Address",
+    "email": "Email",
+    "phone": "Phone",
+    "otherDetails": "Other details",
+    "status": "Status",
+    "required": "This field is required",
+    "create": "Create",
+    "update": "Update",
+    "reset": "Reset"
+  },
   "delivery": {
     "list": {
       "packageType": "Package type",
@@ -6,6 +37,22 @@
       "recipient": "Recipient",
       "status": "Status",
       "lastModifiedAt": "Last modified at"
+    },
+    "detail": {
+      "complete": "Complete",
+      "edit": "Edit",
+      "completeConfirmationTitle": "Are you sure you want to complete this delivery?",
+      "completeConfirmationBody": "Once completed, the delivery cannot be changed. It will remain visible in the list of completed deliveries.",
+      "completeConfirmationCancel": "Cancel",
+      "completeConfirmationContinue": "Continue",
+      "completeSuccess": "Successfully completed!",
+      "deliveryStatus": "Delivery status"
     }
-  }
+  },
+  "letter": "Letter",
+  "postcard": "Postcard",
+  "printedItem": "Printed item",
+  "smallPackage": "Small package",
+  "secogram": "Secogram",
+  "parcel": "Parcel"
 }
