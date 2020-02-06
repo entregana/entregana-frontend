@@ -38,15 +38,19 @@
             *ngIf="delivery.recipient.email"
             href="mailto:{{ delivery.recipient.email }}"
           >
-            {{ delivery.recipient.email }} </a
-          ><br />
+            {{ delivery.recipient.email }}
+          </a>
+          <br />
           <a
             *ngIf="delivery.recipient.phone"
             href="tel:{{ delivery.recipient.phone }}"
           >
-            {{ delivery.recipient.phone }} </a
-          ><br />
+            {{ delivery.recipient.phone }}
+          </a>
+          <br />
           {{ delivery.recipient.additionalDetails }}
+          <br />
+          {{ delivery.packageType | translate }}
         </address>
         {{ delivery.otherDetails }}
       </span>

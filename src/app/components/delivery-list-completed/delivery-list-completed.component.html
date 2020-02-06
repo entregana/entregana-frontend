@@ -12,11 +12,11 @@
   <tbody>
     <tr *ngFor="let delivery of deliveries">
       <td><a [routerLink]="['/deliveries', delivery.id]">{{ delivery.id }}</a></td>
-      <td>{{ delivery.packageType }}</td>
+      <td>{{ delivery.packageTypeObject.label | translate }}</td>
       <td>{{ delivery.courier }}</td>
       <td>{{ delivery.recipient.firstName }} {{ delivery.recipient.lastName }}</td>
       <td>{{ delivery.status }}</td>
-      <td>{{ delivery.modifiedAt }}</td>
+      <td>{{ delivery.modifiedAt | date:'dd.MM.yyyy, HH:mm:ss' }}</td>
     </tr>
   </tbody>
 </table>
